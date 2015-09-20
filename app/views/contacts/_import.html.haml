@@ -1,0 +1,11 @@
+%br
+= simple_form_for(:import_contacts, url: import_contacts_path, multipart: true, :html => one_submit_only) do |f|
+  = link_to_close import_new_contacts_path
+  = f.hidden_field :user_id
+  = f.input :csv_file, as: :file
+
+  .buttonbar
+    = f.submit 'Import' #, :onclick => "crm.create_contact()"
+    #{t :or}
+    = link_to_cancel import_new_contacts_path
+%br

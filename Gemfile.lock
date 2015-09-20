@@ -194,7 +194,6 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (= 0.3.0)
-    pg (0.18.3)
     polyamorous (1.2.0)
       activerecord (>= 3.0)
     premailer (1.8.4)
@@ -397,7 +396,6 @@ DEPENDENCIES
   nokogiri
   paper_trail (>= 4.0.0.beta2)
   paperclip
-  pg
   premailer
   pry-rails
   quiet_assets
@@ -421,6 +419,7 @@ DEPENDENCIES
   selenium-webdriver
   simple_form
   sprockets-rails (= 2.2.2)
+  sqlite3
   therubyracer
   thin
   thor

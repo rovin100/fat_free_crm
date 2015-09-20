@@ -141,6 +141,23 @@ class ContactsController < EntitiesController
     end
   end
 
+  def import_new;  end
+
+  def import
+    CSV.foreach(params[:import_contacts][:csv_file].path, headers: true) do |row|
+      csv_contact = row.to_hash
+      contact = Contact.new
+      contact.user_id = current_user.id
+      contact.first_name = csv_contact['First Name']
+      contact.last_name = csv_contact['Last Name']
+      contact.email = csv_contact['Email']
+      contact.phone = csv_contact['Phone']
+      contact.save
+    end
+    flash[:notice] = 'Contact Imported successfully'
+    redirect_to contacts_path
+  end
+
   private
 
   #----------------------------------------------------------------------------

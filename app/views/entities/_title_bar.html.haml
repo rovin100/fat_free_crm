@@ -6,6 +6,9 @@
     = view_buttons
   .create_asset
     = link_to_inline("create_#{model_name}".to_sym, send("new_#{model_name}_path"), :text => t("create_#{model_name}".to_sym))
+  - if model_name == 'contact'
+    .create_asset
+      = link_to_inline('import_contacts', send("import_new_#{model_name}s_path"), :text => 'Import Contacts')
 
 .title
   %span{:id => "create_#{model_name}_title"} #{t controller_name.to_sym}
